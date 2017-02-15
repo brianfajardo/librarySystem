@@ -29,7 +29,6 @@
         facebook: facebook,
     }
 
-    // If librarySystem is undefined (does not exist in the open source code)
     if (typeof librarySystem !== 'undefined') {
         // Use librarySystem 
         librarySystem('companiesLibrary', function () {

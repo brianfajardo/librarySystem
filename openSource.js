@@ -1,3 +1,7 @@
+// window.companiesJS has an original value
+window.companiesLibrary = 'Example original string';
+
+// companiesJS loads
 (function () {
     var amazon = {
         rank: 1,
@@ -29,15 +33,29 @@
         facebook: facebook,
     }
 
-    // If librarySystem is undefined (does not exist in the open source code)
     if (typeof librarySystem !== 'undefined') {
         // Use librarySystem 
         librarySystem('companiesLibrary', function () {
             return companiesLibrary;
         });
     } else {
+        var oldCompaniesLibrary = window.companiesLibrary; /* 'Example original string' */
+        companiesLibrary.noConflict = function () {
+            window.companiesLibrary = oldCompaniesLibrary;
+            return companiesLibrary; /* closure scope */
+        };
         // Create companiesLibrary in the window
         window.companiesLibrary = companiesLibrary;
     }
 
 })();
+
+// Resetting window.companiesLibrary to the original value
+// .noConflict() will also return the companiesLibrary object
+var companiesJS = companiesLibrary.noConflict();
+
+// We can still reference the original string
+console.log(companiesLibrary)
+
+// We can also reference the companiesLibrary library in the IIFE
+console.log(companiesJS.amazon.headquarters)

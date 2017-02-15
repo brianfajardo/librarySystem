@@ -60,5 +60,3 @@ console.log(companiesLibrary)
 
 // We can also reference the companiesLibrary library in the IIFE
 console.log(companiesJS.amazon.headquarters)
-=======
->>>>>>> 5c21923e4350e35d2b2afe290a71b83d0c2a35fe

@@ -49,7 +49,6 @@ window.companiesLibrary = 'Example original string';
     }
 
 })();
-<<<<<<< HEAD
 
 // Resetting window.companiesLibrary to the original value
 // .noConflict() will also return the companiesLibrary object
